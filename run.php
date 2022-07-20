@@ -17,8 +17,8 @@ try{
 	]);
 
 	$redis = new Redis();
-    $redis->connect($_ENV["redis_host"], $_ENV["redis_port"]);  
-    $redis->ping();
+	$redis->connect($_ENV["redis_host"], $_ENV["redis_port"]);  
+	$redis->ping();
 
 }catch (Exception $e){
         echo $e->getMessage();
@@ -42,6 +42,7 @@ for($orderNo = $redis->lPop('orderno');$_ENV["number"] && $orderNo;$_ENV["number
 	unset($curOrder);
 	$orderNo = $redis->lPop('orderno');
 }
+$redis->close();
 //$redis->lPop('key1');
 //$redis->set('key', 'value');
 //$redis->get('key');
