@@ -27,11 +27,20 @@ try{
 $pid = $_REQUEST['pid'];
 $key = $_REQUEST['key'];
 $tgid = $_REQUEST['tgid'];
+$type = $_REQUEST['type'];
 if(preg_match('/[a-zA-Z0-9_]/', $pid) && preg_match('/[a-zA-Z0-9_]/', $key) && preg_match('/[a-zA-Z0-9_]/', $tgid )){
 	$userinfo = $database->has("pay_user",['uid'=>$pid,'key'=>$key]);
 	if($userinfo){
-		$redis->set($pid,$tgid);
-		echo "设置成功";
+	    switch($type){
+	        case 'add':
+                $redis->set($pid,$tgid);
+                echo "设置成功";
+	            break;
+	        case 'del':
+                $redis->delete($pid);
+                echo "删除成功";
+	            break;
+	    }
 	}else{
 		echo "密钥或者商户号不正确";
 	}
