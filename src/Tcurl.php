@@ -1,5 +1,5 @@
 <?php
-class Turl{
+class Tcurl{
 	private static $TeleUrl = "https://api.telegram.org/bot";
 	private static $BotToken = "";
 
