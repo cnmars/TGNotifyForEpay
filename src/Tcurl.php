@@ -1,3 +1,4 @@
+
 <?php
 class Tcurl{
 	private static $TeleUrl = "https://api.telegram.org/bot";

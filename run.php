@@ -1,8 +1,12 @@
 #!/usr/bin/env php
 <?php
-require_once "./config.php";
-require_once "./src/Medoo.php";
-require_once "./src/Tcurl.php";
+define ('VERIONS', '1.0.2');
+define ('APP_PATH', __DIR__); 
+define ('APP_URL', rtrim (dirname ($_SERVER['SCRIPT_NAME']), DIRECTORY_SEPARATOR));
+define ('SRC', APP_PATH . '/src');
+require_once APP_PATH."/config.php";
+require_once SRC."/Medoo.php";
+require_once SRC."/Tcurl.php";
 
 use Medoo\Medoo;
 
