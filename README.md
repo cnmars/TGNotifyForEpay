@@ -51,7 +51,11 @@ git clone https://github.com/yangningmou/TGNotifyForEpay.git ./
 
 通知方式一，需要更改支付插件，文件名notifyv1.php
 
+<<<<<<< HEAD
 通知方式二，不需要更改支付插件，文件名notifyv2.php.
+=======
+通知方式一，不需要更改支付插件，文件名notifyv2.php.
+>>>>>>> 577c3dc129aab19daa01563f3b8b2e582cf63dda
 
 aaPanel 面板 > Cron
 
