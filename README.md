@@ -1,7 +1,7 @@
 # TGNotifyForEpay
 为你的彩虹易支付增添电报机器人通知功能
 
-无需修改易支付数据库，使用过程中不涉及数据库数据修改。
+无需修改易支付数据库。
 
 代码开源，没有授权及各种费用，随意查看使用和下载。
 
@@ -47,27 +47,33 @@ git clone https://github.com/yangningmou/TGNotifyForEpay.git ./
 
 ## 	1.6配置定时任务
 
-执行时间按个人需求设定
+执行时间按个人需求设定，如果嫌弃宝塔定时任务太慢，可以使用crontab。
+
+通知方式一，需要更改支付插件，文件名notifyv1.php
+
+通知方式二，不需要更改支付插件，文件名notifyv2.php.
 
 aaPanel 面板 > Cron
 
 - 在 Type of Task 选择 Shell Script
 - 在 Name of Task 填写 TGNotifyForEpay
 - 在 Period 选择 N Minutes 1 Minute
-- 在 Script content 填写 php /www/wwwroot/网站路径/run.php schedule:run
+- 在 Script content 填写 php /www/wwwroot/网站路径/文件名.php schedule:run
 
 删库塔面板 > 计划任务
 
 - 在 任务类型 选择 Shell 脚本
 - 在 任务名称 填写 TGNotifyForEpay
 - 在 执行周期 选择 N Minutes 1 Minute
-- 在 脚本内容 填写 php /www/wwwroot/网站路径/run.php schedule:run
+- 在 脚本内容 填写 php /www/wwwroot/网站路径/文件名.php schedule:run
 
 ## 	1.7启动队列服务（可选）
 
 自行摸索
 
 ## 	1.8修改易支付
+
+只有选择通知方式一的需要进行这个操作。
 
 将./plugins目录下对应插件替换到相应位置，github目录下没有的插件是还未修改，可自行探索。
 
