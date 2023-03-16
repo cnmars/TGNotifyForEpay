@@ -92,17 +92,9 @@ $redis->close();
 
 # 2.使用方法
 
-添加用户
+直接访问网站首页，按照提示绑定。
 
-```php+HTML
-域名/account.php?pid=商户号&key=密钥&tgid=电报id&type=add
-```
-
-删除用户
-
-```php+HTML
-域名/account.php?pid=商户号&key=密钥&tgid=电报id&type=del
-```
+![](index.png)
 
 # 3.获得帮助
 
