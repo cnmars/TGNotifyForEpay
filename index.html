@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>通知控制面板</title>
+		<style>
+			.*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.container{
+				width: 100vw;
+				height: 100vh;
+				background: url("img/BingWallpaper.jpg") no-repeat center center/cover;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.login{
+				width: 700px;
+				height: 360px;
+				border-left: 2px solid rgba(255, 255, 255, 0.7);
+				border-top: 2px solid rgba(255, 255, 255, 0.7);
+				background: rgba(255, 255, 255, 0.2);
+				backdrop-filter: blur(8px);
+				box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.content{
+				margin-left: 30px;
+			}
+			.content >*{
+				display: block;
+			}
+			.content input{
+				width: 300px;
+				height: 36px;
+				outline: none;
+				border-radius: 5px;
+				margin-bottom: 10px;
+				border: 1px solid #ccc;
+				font-size: 16px;
+				padding-left: 10px;
+				box-sizing: border-box;
+			}
+			.content h3{
+				color: white;
+			}
+			.content p{
+				color: white;
+				font-size: 5px;
+			}
+			.content a{
+				color: white;
+				font-size: 5px;
+				font-style: italic;
+			}
+			.container input[type="button"]{
+				color: white;
+				background-color: rgba(0, 0, 0, 0.3);
+				cursor: pointer;
+			}
+			.imgbox img{
+				border-radius: 50%;
+				filter: saturate(80%);
+			}
+		</style>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="login">
+				<div class="imgbox">
+					<img src="./img/Telegram_2019_Logo.svg.png" width="100px" height="100px">
+				</div>
+				<div class="content">
+					<h3>欢迎使用</h3>
+					<input type="text" name="tgid" id="tgid" placeholder="请输入电报ID">
+					<input type="text" name="pid" id="pid" placeholder="请输入商户ID">
+					<input type="text" name="key" id="key" placeholder="请输入商户密钥">
+					<input type="button" value="开启通知" id="add">
+					<input type="button" value="关闭通知" id="del">
+					<p>Powered By ningmou</p>
+					<a href="https://github.com/yangningmou/TGNotifyForEpay">项目github地址</a>
+				</div>
+			</div>
+		</div>
+		<script>
+			const tgid = document.getElementById("tgid");
+			const pid = document.getElementById("pid");
+			const key = document.getElementById("key");
+			const add = document.getElementById("add");
+			const del = document.getElementById("del");
+			add.addEventListener("click",()=>{
+				axios.get("account.php?"+"tgid="+tgid.value+"&pid="+pid.value+"&key="+
+					key.value+"&type=add")
+				.then(function (response) {
+				    alert(response.data);
+				  })
+				.catch(function (error) {
+				    alert("请求出错")
+				});
+			});
+			del.addEventListener("click",()=>{
+				axios.get("account.php?"+"tgid="+tgid.value+"&pid="+pid.value+"&key="+
+					key.value+"&type=del")
+				.then(function (response) {
+				    alert(response.data);
+				  })
+				.catch(function (error) {
+				    alert("请求出错")
+				});
+			});
+		</script>
+	</body>
+</html>
