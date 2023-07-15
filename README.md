@@ -1,4 +1,7 @@
 # TGNotifyForEpay
+
+nodejs版本已发布，部署使用更简单，直达链接 [yangningmou/EpayBot](https://github.com/yangningmou/EpayBot)
+
 为你的彩虹易支付增添电报机器人通知功能
 
 无需修改易支付数据库。
